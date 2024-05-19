@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Seus favoritos - G1</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+</head>
+<body>
+    
+
+    <div class="container d-flex justify-content-center align-items-center vh-100" id="app">
+
+        <div class="row">
+
+            <div class="col-md-12">
+
+                <div class="card">
+                    <div class="card-header d-flex justify-content-between">
+                      Seus favoritos
+                      <button class="btn" @click="limparFavoritos()">Limpar</button>
+                    </div>
+                    <div class="card-body">
+                      <p class="card-title mb-3">Escolha quais assuntos você quer ver e clique no botão para abrir as últimas notícias.</p>
+                      <a href="#" class="btn" :class="{'btn-danger': selected.includes('Fato ou Fake')}" @click="botaoSelecionado('Fato ou Fake')">Fato ou Fake</a>
+                      <a href="#" class="btn" :class="{'btn-danger': selected.includes('Podcast')}"  @click="botaoSelecionado('Podcast')">Podcast</a>
+                      <a href="#" class="btn" :class="{'btn-danger': selected.includes('Política')}"  @click="botaoSelecionado('Política')">Política</a>
+                      <a href="#" class="btn" :class="{'btn-danger': selected.includes('Economia')}"  @click="botaoSelecionado('Economia')">Economia</a>
+                      <a href="#" class="btn" :class="{'btn-danger': selected.includes('Tecnologia')}"  @click="botaoSelecionado('Tecnologia')">Tecnologia</a>
+                      <a href="#" class="btn" :class="{'btn-danger': selected.includes('Saúde')}"  @click="botaoSelecionado('Saúde')"> Saúde</a>
+                      <a href="#" class="btn" :class="{'btn-danger': selected.includes('Música')}"  @click="botaoSelecionado('Música')">Música</a>
+                      <a href="#" class="btn" :class="{'btn-danger': selected.includes('Concursos')}"  @click="botaoSelecionado('Concursos')">Concursos</a>
+                      <a href="#" class="btn" :class="{'btn-danger': selected.includes('Cinema')}"  @click="botaoSelecionado('Cinema')">Cinema</a> <br>
+
+                      <div class="div d-flex justify-content-center mt-5">
+
+                          <a href="#" class="btn" :class="{'btn-danger' :  anySelected, 'disabled': !anySelected}">Seguir assuntos</a>
+                      </div>
+                    </div>
+                  </div>
+
+            </div>
+
+        </div>
+
+    </div> 
+
+    
+
+
+
+    <script src="js/app.js"></script>
+</body>
+</html>
