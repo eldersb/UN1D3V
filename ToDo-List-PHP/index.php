@@ -1,3 +1,24 @@
+<?php
+
+include "./funcoes/cadastroTarefa.php";
+
+session_start();
+
+$valor = $_SESSION['titulo'];
+
+// echo json_encode($_SESSION, JSON_PRETTY_PRINT);
+
+// var_dump($_SESSION['titulo']);
+
+// echo $valor;
+
+
+
+?>
+
+
+
+
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -36,32 +57,38 @@
                         <table class="table mt-4">
                             <thead>
                                 <tr>
-                                    <th scope="col">#</th>
                                     <th scope="col">Tarefa</th>
                                     <th scope="col">Data</th>
                                     <th scope="col">Ação</th>
                                 </tr>
                             </thead>
                             <tbody>
+                               
+                                   
+                               <?php
+                                 foreach (array_map(null, $_SESSION['titulo'], $_SESSION['date']) as [$titulo, $date]) : ?>
                                 <tr>
-                                    <th scope="row">1</th>
-                                    <td>Mark</td>
-                                    <td>Otto</td>
-                                    <td>Excluir</td>
+                                    <td><?php echo $titulo ?></td>
+                                    <td><?php echo $date ?></td>
+                                    <td><button class="btn">Excluir</button></td>
                                 </tr>
-                                <tr>
-                                    <th scope="row">2</th>
-                                    <td>Jacob</td>
-                                    <td>Thornton</td>
-                                    <td>Excluir</td>
-                                </tr>
-                                
+                                <?php endforeach?>
+                               
+                              
+
+
+                               
+
+
                             </tbody>
                         </table>
                 </div>
             </div>
         </div>
     </section>
+
+   
+  
 
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
