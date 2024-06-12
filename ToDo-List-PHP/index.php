@@ -13,14 +13,14 @@
     <header>
         <nav class="navbar navbar-expand-lg bg-primary">
             <div class="container-fluid">
-                <a class="navbar-brand text-light" href="index.html">ToDo list</a>
+                <a class="navbar-brand text-light" href="index.php">ToDo list</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                     <div class="navbar-nav ms-auto">
-                        <a class="nav-link active text-light" aria-current="page" href="cadastro.html">Cadastrar tarefa</a>
-                        <a class="nav-link active text-light" href="index.html">Listar tarefas</a>
+                        <a class="nav-link active text-light" aria-current="page" href="cadastro.php">Cadastrar tarefa</a>
+                        <a class="nav-link active text-light" href="index.php">Listar tarefas</a>
                     </div>
                 </div>
             </div>
