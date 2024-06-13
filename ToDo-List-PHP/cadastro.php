@@ -25,7 +25,7 @@ if($tituloTarefa != "" && $dataTarefa != "" && strlen($tituloTarefa) > 5 && strt
    // $_SESSION['data'][] = $dataTarefa;
 }
 
-// var_dump($_SESSION);
+var_dump($_SESSION['titulo']);
 
 // session_unset();
 

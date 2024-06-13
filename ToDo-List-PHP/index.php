@@ -1,6 +1,5 @@
 <?php
 
-include "./funcoes/cadastroTarefa.php";
 
 session_start();
 
@@ -57,6 +56,7 @@ $valor = $_SESSION['titulo'];
                         <table class="table mt-4">
                             <thead>
                                 <tr>
+                                    
                                     <th scope="col">Tarefa</th>
                                     <th scope="col">Data</th>
                                     <th scope="col">Ação</th>
@@ -75,10 +75,6 @@ $valor = $_SESSION['titulo'];
                                 <?php endforeach?>
                                
                               
-
-
-                               
-
 
                             </tbody>
                         </table>
