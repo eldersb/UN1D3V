@@ -4,12 +4,15 @@ session_start();
 
 $tituloTarefa = $_POST['titulo'] ?? "";
 $dataTarefa = $_POST['date'] ?? "";
+$id = "";
 
 date_default_timezone_set('America/Sao_Paulo');
 $dataAtual = date("Y/m/d");
 
+
+
 if($tituloTarefa != "" && $dataTarefa != "" && strlen($tituloTarefa) > 5 && strtotime($dataTarefa) >= strtotime($dataAtual)) {
-  
+
    if (!isset($_SESSION['titulo'])) {
        $_SESSION['titulo'] = [];
    }
@@ -20,14 +23,19 @@ if($tituloTarefa != "" && $dataTarefa != "" && strlen($tituloTarefa) > 5 && strt
    array_push($_SESSION['titulo'], $tituloTarefa);
    array_push($_SESSION['date'], $dataTarefa);
 
-   
-   // $_SESSION['titulo'][] = $tituloTarefa;
-   // $_SESSION['data'][] = $dataTarefa;
+   if (!isset($_SESSION['id'])) {
+    $_SESSION['id'] = [];
+    }
+
+    $id = array_search($tituloTarefa, $_SESSION['titulo']);
+    array_push($_SESSION['id'], $id + 1);
+
 }
 
-var_dump($_SESSION['titulo']);
 
-// session_unset();
+
+
+//   session_unset();
 
 ?>
 
@@ -84,22 +92,23 @@ var_dump($_SESSION['titulo']);
             </div>
         </div>
 
+
         <?php if ($tituloTarefa != "" && $dataTarefa != "" && strlen($tituloTarefa) > 5 && strtotime($dataTarefa) >= strtotime($dataAtual)) : ?>
-            <div class="alert alert-success">
+            <div class="alert alert-success mt-5">
                 <strong>Uhull</strong><br>
                 Tarefa Cadastrada com sucesso!
             </div>
         <?php endif; ?>
 
         <?php if (strlen($tituloTarefa) < 5) : ?>
-            <div class="alert alert-warning">
+            <div class="alert alert-warning mt-5">
                 <strong>Ops!!!</strong><br>
                 O título da tarefa não pode ter menos do que 5 caracteres!
             </div>
         <?php endif; ?>
 
         <?php if (strtotime($dataTarefa) < strtotime($dataAtual)) : ?>
-            <div class="alert alert-warning">
+            <div class="alert alert-warning mt-5">
                 <strong>Ops!!!</strong><br>
                   <?php echo "A data da tarefa não pode ser anterior a $dataAtual" ?>
             </div>

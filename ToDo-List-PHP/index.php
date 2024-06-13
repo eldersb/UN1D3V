@@ -3,14 +3,9 @@
 
 session_start();
 
-$valor = $_SESSION['titulo'];
+// $valor = $_SESSION['titulo'];
 
-// echo json_encode($_SESSION, JSON_PRETTY_PRINT);
-
-// var_dump($_SESSION['titulo']);
-
-// echo $valor;
-
+//   var_dump($_SESSION['titulo']);
 
 
 ?>
@@ -56,7 +51,7 @@ $valor = $_SESSION['titulo'];
                         <table class="table mt-4">
                             <thead>
                                 <tr>
-                                    
+                                     <th scope="col">#</th>
                                     <th scope="col">Tarefa</th>
                                     <th scope="col">Data</th>
                                     <th scope="col">Ação</th>
@@ -66,11 +61,12 @@ $valor = $_SESSION['titulo'];
                                
                                    
                                <?php
-                                 foreach (array_map(null, $_SESSION['titulo'], $_SESSION['date']) as [$titulo, $date]) : ?>
+                                 foreach (array_map(null, $_SESSION['id'], $_SESSION['titulo'], $_SESSION['date']) as [$idTask, $titulo, $date]) : ?>
                                 <tr>
+                                     <td><?php echo $idTask ?></td>
                                     <td><?php echo $titulo ?></td>
                                     <td><?php echo $date ?></td>
-                                    <td><button class="btn">Excluir</button></td>
+                                    <td><button class="btn btn-primary">Excluir</button></td>
                                 </tr>
                                 <?php endforeach?>
                                
