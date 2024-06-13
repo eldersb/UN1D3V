@@ -9,8 +9,6 @@ $id = "";
 date_default_timezone_set('America/Sao_Paulo');
 $dataAtual = date("Y/m/d");
 
-
-
 if($tituloTarefa != "" && $dataTarefa != "" && strlen($tituloTarefa) > 5 && strtotime($dataTarefa) >= strtotime($dataAtual)) {
 
    if (!isset($_SESSION['titulo'])) {
@@ -31,8 +29,6 @@ if($tituloTarefa != "" && $dataTarefa != "" && strlen($tituloTarefa) > 5 && strt
     array_push($_SESSION['id'], $id + 1);
 
 }
-
-
 
 
 //   session_unset();

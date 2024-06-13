@@ -1,16 +1,22 @@
 <?php
 
-
 session_start();
+
+function testeOnclick() {
+
+    session_unset();
+
+    header('Location: index.php');
+
+}
+    
+
 
 // $valor = $_SESSION['titulo'];
 
-//   var_dump($_SESSION['titulo']);
-
+// var_dump($_SESSION['titulo']);
 
 ?>
-
-
 
 
 <!DOCTYPE html>
@@ -46,7 +52,11 @@ session_start();
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
-                    <h2 class="text-primary mt-5">Tarefas cadastradas</h1>
+                    <div class=" d-flex justify-content-between align-items-end">
+                        <h2 class="text-primary mt-5">Tarefas cadastradas</h1>
+                        <a href="index.php?id=1" class="btn btn-primary">Limpar tudo</a>
+
+                    </div>
 
                         <table class="table mt-4">
                             <thead>
@@ -66,17 +76,29 @@ session_start();
                                      <td><?php echo $idTask ?></td>
                                     <td><?php echo $titulo ?></td>
                                     <td><?php echo $date ?></td>
-                                    <td><button class="btn btn-primary">Excluir</button></td>
+                                    <td><a href="index.php?id=1" class="btn btn-primary">Excluir</a></td>
                                 </tr>
                                 <?php endforeach?>
                                
+                                
+                                <?php 
+
+                                    if(isset($_GET['id']) == 1){
+                                        testeOnclick();
+                                    }
                               
+                                ?>
 
                             </tbody>
                         </table>
                 </div>
             </div>
         </div>
+
+       
+
+     
+
     </section>
 
    
