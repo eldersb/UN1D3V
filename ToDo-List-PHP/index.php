@@ -9,7 +9,6 @@ function testeOnclick() {
     header('Location: index.php');
 
 }
-    
 
 
 // $valor = $_SESSION['titulo'];
@@ -76,17 +75,27 @@ function testeOnclick() {
                                      <td><?php echo $idTask ?></td>
                                     <td><?php echo $titulo ?></td>
                                     <td><?php echo $date ?></td>
-                                    <td><a href="index.php?id=1" class="btn btn-primary">Excluir</a></td>
+                                    <td><a href="index.php?id2=2" class="btn btn-primary">Excluir</a></td>
                                 </tr>
+
                                 <?php endforeach?>
                                
                                 
                                 <?php 
 
-                                    if(isset($_GET['id']) == 1){
+                                     if(isset($_GET['id']) == 1){
                                         testeOnclick();
+                                     }
+
+                                     if(isset($_GET['id2']) == 2){
+                                        $indice = $idTask;
+                                        unset($_SESSION['titulo'][$indice]);
+                                        unset($_SESSION['date'][$indice]);
+                                        unset($_SESSION['id'][$indice]);
+
+                                        header('Location: index.php');
                                     }
-                              
+
                                 ?>
 
                             </tbody>
@@ -95,7 +104,11 @@ function testeOnclick() {
             </div>
         </div>
 
-       
+        <?php 
+           $json = json_encode($_SESSION, JSON_PRETTY_PRINT);
+
+           echo $json;
+        ?>
 
      
 
