@@ -2,36 +2,42 @@
 
 session_start();
 
-$tituloTarefa = $_POST['titulo'] ?? "";
-$dataTarefa = $_POST['date'] ?? "";
-$id = "";
+$tituloTarefa = "";
+$dataTarefa = "";
+$dataAtual = "";
 
-date_default_timezone_set('America/Sao_Paulo');
-$dataAtual = date("Y/m/d");
+if ($_SERVER['REQUEST_METHOD'] != 'GET') {
+    $tituloTarefa = $_POST['titulo'] ?? "";
+    $dataTarefa = $_POST['date'] ?? "";
+    $id = "";
 
-if($tituloTarefa != "" && $dataTarefa != "" && strlen($tituloTarefa) > 5 && strtotime($dataTarefa) >= strtotime($dataAtual)) {
+    date_default_timezone_set('America/Sao_Paulo');
+    $dataAtual = date("Y/m/d");
 
-   if (!isset($_SESSION['titulo'])) {
-       $_SESSION['titulo'] = [];
-   }
-   if (!isset($_SESSION['date'])) {
-       $_SESSION['date'] = [];
-   }
+    if ($tituloTarefa != "" && $dataTarefa != "" && strlen($tituloTarefa) > 5 && strtotime($dataTarefa) >= strtotime($dataAtual)) {
 
-   array_push($_SESSION['titulo'], $tituloTarefa);
-   array_push($_SESSION['date'], $dataTarefa);
+        if (!isset($_SESSION['titulo'])) {
+            $_SESSION['titulo'] = [];
+        }
+        if (!isset($_SESSION['date'])) {
+            $_SESSION['date'] = [];
+        }
 
-   if (!isset($_SESSION['id'])) {
-    $_SESSION['id'] = [];
+        array_push($_SESSION['titulo'], $tituloTarefa);
+        array_push($_SESSION['date'], $dataTarefa);
+
+        if (!isset($_SESSION['id'])) {
+            $_SESSION['id'] = [];
+        }
+
+        $id = array_search($tituloTarefa, $_SESSION['titulo']);
+        array_push($_SESSION['id'], $id + 1);
     }
-
-    $id = array_search($tituloTarefa, $_SESSION['titulo']);
-    array_push($_SESSION['id'], $id + 1);
-
 }
-
-
 //   session_unset();
+
+
+
 
 ?>
 
@@ -96,7 +102,7 @@ if($tituloTarefa != "" && $dataTarefa != "" && strlen($tituloTarefa) > 5 && strt
             </div>
         <?php endif; ?>
 
-        <?php if (strlen($tituloTarefa) < 5) : ?>
+        <?php if (strlen($tituloTarefa) < 5 && $_SERVER['REQUEST_METHOD'] != 'GET') : ?>
             <div class="alert alert-warning mt-5">
                 <strong>Ops!!!</strong><br>
                 O título da tarefa não pode ter menos do que 5 caracteres!
@@ -106,11 +112,11 @@ if($tituloTarefa != "" && $dataTarefa != "" && strlen($tituloTarefa) > 5 && strt
         <?php if (strtotime($dataTarefa) < strtotime($dataAtual)) : ?>
             <div class="alert alert-warning mt-5">
                 <strong>Ops!!!</strong><br>
-                  <?php echo "A data da tarefa não pode ser anterior a $dataAtual" ?>
+                <?php echo "A data da tarefa não pode ser anterior a $dataAtual" ?>
             </div>
         <?php endif; ?>
 
-        
+
 
 
     </section>
