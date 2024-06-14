@@ -68,10 +68,10 @@ function limpartudo() {
 
                     </div>
 
-                        <table class="table mt-4">
-                            <thead class="table-primary" >
+                        <table class="table mt-4 table table-primary table-hover table-bordered">
+                            <thead >
                                 <tr>
-                                     <th scope="col">#</th>
+                                    <th scope="col">#</th>
                                     <th scope="col">Tarefa</th>
                                     <th scope="col">Data</th>
                                     <th scope="col">Ação</th>
@@ -82,7 +82,7 @@ function limpartudo() {
                                    
                                <?php
                                  foreach (array_map(null, $_SESSION['id'], $_SESSION['titulo'], $_SESSION['date']) as [$idTask, $titulo, $date]) : ?>
-                                <tr class="table-primary" >
+                                <tr>
                                      <td><?php echo $idTask ?></td>
                                     <td><?php echo $titulo ?></td>
                                     <td><?php echo $date ?></td>
