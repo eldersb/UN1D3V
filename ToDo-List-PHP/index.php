@@ -68,7 +68,7 @@ function limpartudo() {
 
                     </div>
 
-                        <table class="table mt-4 table table-primary table-hover table-bordered">
+                        <table class="table mt-4 table-hover table-bordered">
                             <thead >
                                 <tr>
                                     <th scope="col">#</th>
