@@ -64,8 +64,9 @@ if ($_SERVER['REQUEST_METHOD'] != 'GET') {
                 </button>
                 <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                     <div class="navbar-nav ms-auto">
-                        <a class="nav-link active text-light" aria-current="page" href="cadastro.php">Cadastrar tarefa</a>
-                        <a class="nav-link active text-light" href="index.php">Listar tarefas</a>
+                        <a class="nav-link active text-light" href="buscar.php"><strong>Buscar tarefas</strong></a>
+                        <a class="nav-link active text-light" aria-current="page" href="cadastro.php"><strong>Cadastrar tarefa</strong></a>
+                        <a class="nav-link active text-light" href="index.php"><strong>Listar tarefas</strong></a>
                     </div>
                 </div>
             </div>
@@ -92,29 +93,33 @@ if ($_SERVER['REQUEST_METHOD'] != 'GET') {
                     </form>
                 </div>
             </div>
-        </div>
-
-
-        <?php if ($tituloTarefa != "" && $dataTarefa != "" && strlen($tituloTarefa) > 5 && strtotime($dataTarefa) >= strtotime($dataAtual)) : ?>
+            
+            <?php if ($tituloTarefa != "" && $dataTarefa != "" && strlen($tituloTarefa) > 5 && strtotime($dataTarefa) >= strtotime($dataAtual)) : ?>
             <div class="alert alert-success mt-5">
                 <strong>Uhull</strong><br>
                 Tarefa Cadastrada com sucesso!
             </div>
-        <?php endif; ?>
+            <?php endif; ?>
 
-        <?php if (strlen($tituloTarefa) < 5 && $_SERVER['REQUEST_METHOD'] != 'GET') : ?>
+            <?php if (strlen($tituloTarefa) < 5 && $_SERVER['REQUEST_METHOD'] != 'GET') : ?>              
             <div class="alert alert-warning mt-5">
                 <strong>Ops!!!</strong><br>
                 O título da tarefa não pode ter menos do que 5 caracteres!
             </div>
-        <?php endif; ?>
+             <?php endif; ?>
 
-        <?php if (strtotime($dataTarefa) < strtotime($dataAtual)) : ?>
-            <div class="alert alert-warning mt-5">
+            <?php if (strtotime($dataTarefa) < strtotime($dataAtual)) : ?>
+             <div class="alert alert-warning mt-5">
                 <strong>Ops!!!</strong><br>
                 <?php echo "A data da tarefa não pode ser anterior a $dataAtual" ?>
-            </div>
-        <?php endif; ?>
+             </div>
+            <?php endif; ?>
+        </div>
+
+
+       
+
+       
 
 
 

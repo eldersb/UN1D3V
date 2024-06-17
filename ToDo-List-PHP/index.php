@@ -44,14 +44,15 @@ function limpartudo() {
     <header>
         <nav class="navbar navbar-expand-lg bg-primary">
             <div class="container-fluid">
-                <a class="navbar-brand text-light" href="index.php">ToDo list</a>
+                <a class="navbar-brand text-light" href="index.php"><strong>ToDo list</strong></a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                     <div class="navbar-nav ms-auto">
-                        <a class="nav-link active text-light" aria-current="page" href="cadastro.php">Cadastrar tarefa</a>
-                        <a class="nav-link active text-light" href="index.php">Listar tarefas</a>
+                        <a class="nav-link active text-light" href="buscar.php"><strong>Buscar tarefas</strong></a>
+                        <a class="nav-link active text-light" aria-current="page" href="cadastro.php"><strong>Cadastrar tarefa</strong></a>
+                        <a class="nav-link active text-light" href="index.php"><strong>Listar tarefas</strong></a>
                     </div>
                 </div>
             </div>
@@ -62,7 +63,7 @@ function limpartudo() {
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
-                    <div class=" d-flex justify-content-between align-items-end">
+                    <div class="d-flex justify-content-between align-items-end">
                         <h2 class="text-primary mt-5">Tarefas cadastradas</h1>
                         <a href="index.php?id=1" class="btn btn-primary">Limpar tudo</a>
 
