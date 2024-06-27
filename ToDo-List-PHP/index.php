@@ -84,7 +84,7 @@ function limpartudo() {
                                <?php
                                  foreach (array_map(null, $_SESSION['id'], $_SESSION['titulo'], $_SESSION['date']) as [$idTask, $titulo, $date]) : ?>
                                 <tr>
-                                     <td><?php echo $idTask ?></td>
+                                    <td><?php echo $idTask ?></td>
                                     <td><?php echo $titulo ?></td>
                                     <td><?php echo $date ?></td>
                                     <td><a href="index.php?delete_id=<?php echo $idTask ?>" class="btn btn-primary">Excluir</a></td>

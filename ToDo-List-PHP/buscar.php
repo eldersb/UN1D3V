@@ -5,7 +5,6 @@ session_start();
 $buscarTarefa = $_GET['buscar'] ?? "";
 
 
-
 ?>
 
 
@@ -59,10 +58,38 @@ $buscarTarefa = $_GET['buscar'] ?? "";
             if ($buscarTarefa != "" && strlen($buscarTarefa) >= 3) {
                 $cont = 0;
                 $encontrado = false; 
-                foreach ($_SESSION['titulo'] as $tarefaBuscada) {
-                    if (str_contains(strtolower($tarefaBuscada), strtolower($buscarTarefa))) {
+                $tabelaAberta = false;
+                foreach (array_map(null, $_SESSION['id'], $_SESSION['titulo'], $_SESSION['date']) as [$idTarefa, $tituloTarefa, $dateTarefa]) {
+                    if (str_contains(strtolower($tituloTarefa), strtolower($buscarTarefa))) {
                         $cont++;
                         $encontrado = true;
+
+                        if(!$tabelaAberta){
+                            echo '<table class="table mt-4 table-hover table-bordered">
+                            <thead >
+                                <tr>
+                                    <th scope="col">#</th>
+                                    <th scope="col">Tarefa</th>
+                                    <th scope="col">Data</th>
+                                    <th scope="col">Ação</th>
+                                </tr>
+                            </thead>';
+                            
+
+                            $tabelaAberta = true;
+
+                        }
+                        echo '<tr>';
+                        echo '<td>' . htmlspecialchars($idTarefa) . '</td>';
+                        echo '<td>' . htmlspecialchars($tituloTarefa) . '</td>';
+                        echo '<td>' . htmlspecialchars($dateTarefa) . '</td>';
+                        echo '<td><a href="#""' . htmlspecialchars($idTarefa) . ' class="btn btn-primary">Excluir</a></td>';
+                        echo '</tr>';
+
+                       
+                        
+                      
+                        
                     }
                 }
 
